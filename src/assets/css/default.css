@@ -340,8 +340,8 @@ input[type="number"] {
 }
 .header_container .logo {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 13px;
+  top: 15px;
 }
 .header_container .util_menu {
   position: absolute;
@@ -520,7 +520,7 @@ input[type="number"] {
   box-sizing: border-box;
   padding: 0 5px;
 }
-.header_container .gnb {
+.gnb {
   margin: 52px 0 0 30px;
   position: relative;
   height: 70px;
@@ -549,7 +549,7 @@ input[type="number"] {
 .header_container .gnb a {
   font-size: 20px;
   font-weight: 700;
-  line-height: 23.87px;
+  line-height: 50px;
   color: #333;
 }
 .header_container .gnb .live {
@@ -3324,6 +3324,7 @@ input[type="number"] {
     border-top: 2px solid #c13584;
     height: 52px;
   }
+
   .header_container .gnb ul {
     padding-left: 0;
     box-sizing: border-box;
