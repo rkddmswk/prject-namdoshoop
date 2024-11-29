@@ -3,6 +3,7 @@ import "swiper/css"; // Swiper 스타일
 import "swiper/css/free-mode"; // FreeMode 모듈 스타일
 import { FreeMode } from "swiper/modules";
 
+// 상단메뉴
 const Nav = () => {
   const menuItems = [
     { text: "전체 카테고리", className: "btn_ham" },

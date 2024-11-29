@@ -1,4 +1,5 @@
 const Footer = () => {
+  // 메인 푸터
   return (
     <footer className="footer_container">
       <div className="site_info">
@@ -70,19 +71,19 @@ const Footer = () => {
         <address>
           <span className="address">
             61027) 광주광역시 북구 하서로 672번길 25
-          </span>{" "}
+          </span>
           <span>/</span> <span>대표 : 윤세운</span>
           <br className="m" />
-          <span className="pc inline">/</span> 개인정보 관리 책임자 : 김은정{" "}
-          <span>/</span>{" "}
+          <span className="pc inline">/</span> 개인정보 관리 책임자 : 김은정
+          <span>/</span>
           <span>
             <a href="#">westory7979@naver.com</a>
           </span>
           <br />
-          <span>통신판매업신고번호 : 2020-광주북구-0683</span>{" "}
+          <span>통신판매업신고번호 : 2020-광주북구-0683</span>
           <span className="pc inline">/</span>
-          <br className="m" /> <span>사업자등록번호 : 267-87-01748</span>{" "}
-          <span>/</span>{" "}
+          <br className="m" /> <span>사업자등록번호 : 267-87-01748</span>
+          <span>/</span>
           <span>
             <a href="#">사업자정보확인</a>
           </span>
@@ -97,14 +98,14 @@ const Footer = () => {
         <address>
           <span className="address">
             (58567) 전라남도 무안군 삼향읍 후광대로 282, 4층
-          </span>{" "}
+          </span>
           <span>/</span> <span>대표 : 김경호</span>
-          <span>/</span> <span>개인정보 관리 책임자 : 황지연</span>{" "}
-          <span>/</span>{" "}
+          <span>/</span> <span>개인정보 관리 책임자 : 황지연</span>
+          <span>/</span>
           <span>
             <a href="#">wldus4923@naver.com</a>
           </span>
-          <br /> <span>통신판매업신고번호 : 2023-전남무안-0228</span>{" "}
+          <br /> <span>통신판매업신고번호 : 2023-전남무안-0228</span>
           <span>/</span>
           <span>사업자등록번호 : 871-82-00432</span>
         </address>

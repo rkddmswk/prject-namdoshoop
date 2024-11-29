@@ -1,4 +1,5 @@
 const RecentProduct = () => {
+  // 메인 - 최근본상품
   return (
     <>
       <section className="recent_products on">
