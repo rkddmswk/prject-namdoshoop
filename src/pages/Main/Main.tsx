@@ -4,76 +4,72 @@ import PcBandMainBanner from "../../assets/images/pc/temp_mainbanner_02.jpg";
 import MBandMainBanner from "../../assets/images/m/temp_mainbanner_02.jpg";
 import swiper2 from "../../assets/images/m/tab_02_off.png";
 import tab02 from "../../assets/images/m/tab_02_on.png";
+import products from "../../components/specific/product/Product";
+import ProductItem from "../../components/specific/product/ProductItem";
 
 const Main = () => {
   return (
-    <div
-      className="body_container"
-      style={{
-        width: "100%",
-        height: "auto",
-        overflowY: "hidden",
-        overflowX: "hidden",
-      }}
-    >
-      <main className="main_content">
-        {/* <section className="main_banner">
+    <main className="main_content">
+      {/* <section className="main_banner">
           <h2 className="hide">메인배너</h2>
         </section> */}
-        <section className="main_banner">
-          <h2 className="hide">메인배너</h2>
-          <div className="banner_slider swiper" style={{ overflow: "hidden" }}>
-            <div className="swiper-wrapper">
-              <div className="swiper-slide">
-                <a href="#">
-                  <span
-                    className="pc"
-                    style={{
-                      backgroundImage: `url(${PcMainBanner})`,
-                    }}
-                  ></span>
-                  <span
-                    className="m"
-                    style={{
-                      backgroundImage: `url(${McMainBanner})`,
-                    }}
-                  ></span>
-                  <span className="hide">대체텍스트</span>
-                </a>
-              </div>
+      <section className="main_banner">
+        <h2 className="hide">메인배너</h2>
+        <div className="banner_slider swiper" style={{ overflow: "hidden" }}>
+          <div className="swiper-wrapper">
+            <div className="swiper-slide">
+              <a href="#">
+                <span
+                  className="pc"
+                  style={{
+                    backgroundImage: `url(${PcMainBanner})`,
+                  }}
+                ></span>
+                <span
+                  className="m"
+                  style={{
+                    backgroundImage: `url(${McMainBanner})`,
+                  }}
+                ></span>
+                <span className="hide">대체텍스트</span>
+              </a>
             </div>
-            <button type="button" className="btn_prev">
-              <span className="hide">이전</span>
-            </button>
-            <button type="button" className="btn_next">
-              <span className="hide">다음</span>
-            </button>
-            {/* <div className="swiper-pagination"></div> */}
           </div>
-        </section>
-        <section className="band_banner">
-          <h2 className="hide">프로모션</h2>
-          <p className="banner">
-            <a href="#">
-              <span
-                className="pc"
-                style={{ backgroundImage: `url(${PcBandMainBanner})` }}
-              ></span>
-              <span
-                className="m"
-                style={{ backgroundImage: `url(${MBandMainBanner})` }}
-              ></span>
-              <span className="hide">
-                매주 수요일 놓치지 마세요! 특가로 만나보는 수요장터
-              </span>
-            </a>
-          </p>
-        </section>
-        <section className="prd_section">
-          <h2 className="title">main_Body_타이틀</h2>
-          <div className="prd_list">
-            <ul className="list">
-              <li className="item hover">
+          <button type="button" className="btn_prev">
+            <span className="hide">이전</span>
+          </button>
+          <button type="button" className="btn_next">
+            <span className="hide">다음</span>
+          </button>
+          {/* <div className="swiper-pagination"></div> */}
+        </div>
+      </section>
+      <section className="band_banner">
+        <h2 className="hide">프로모션</h2>
+        <p className="banner">
+          <a href="#">
+            <span
+              className="pc"
+              style={{ backgroundImage: `url(${PcBandMainBanner})` }}
+            ></span>
+            <span
+              className="m"
+              style={{ backgroundImage: `url(${MBandMainBanner})` }}
+            ></span>
+            <span className="hide">
+              매주 수요일 놓치지 마세요! 특가로 만나보는 수요장터
+            </span>
+          </a>
+        </p>
+      </section>
+      <section className="prd_section">
+        <h2 className="title">main_Body_타이틀</h2>
+        <div className="prd_list">
+          <ul className="list">
+            {products.map((product, index) => (
+              <ProductItem key={index} {...product} />
+            ))}
+            {/* <li className="item hover">
                 <div className="prd_img">
                   <span className="tag recom">
                     <span className="hide">추천</span>
@@ -144,8 +140,8 @@ const Main = () => {
                     </button>
                   </div>
                 </div>
-              </li>
-              <li className="item">
+              </li> */}
+            {/* <li className="item">
                 <div className="prd_img">
                   <span className="tag new">
                     <span className="hide">신상품</span>
@@ -201,113 +197,112 @@ const Main = () => {
                     </button>
                   </div>
                 </div>
-              </li>
-            </ul>
-          </div>
+              </li> */}
+          </ul>
+        </div>
+        <a href="#" className="btn_more">
+          <span>전체보기</span>
+        </a>
+      </section>
+
+      <section className="promo_section">
+        <h2 className="title">지금 진행중인 기획전</h2>
+      </section>
+
+      <section className="pv">
+        <div className="inner">
+          <h2 className="title">
+            <b>믿고 먹을 수 있는</b> 남다른 남도 밥상
+          </h2>
+          <p className="text">남도장터를 더욱 생생하게 만나보세요</p>
+          <iframe
+            width="626"
+            height="326"
+            src="https://www.youtube.com/embed/dpT6JNbpC3E?si=il1JRsiTFlJV97uZ"
+            title="YouTube video player"
+            // frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            // referrerpolicy="strict-origin-when-cross-origin"
+            // allowfullscreen
+          ></iframe>
           <a href="#" className="btn_more">
-            <span>전체보기</span>
+            <span>더 많은 영상 보기</span>
           </a>
-        </section>
+        </div>
+      </section>
 
-        <section className="promo_section">
-          <h2 className="title">지금 진행중인 기획전</h2>
-        </section>
-
-        <section className="pv">
-          <div className="inner">
-            <h2 className="title">
-              <b>믿고 먹을 수 있는</b> 남다른 남도 밥상
-            </h2>
-            <p className="text">남도장터를 더욱 생생하게 만나보세요</p>
-            <iframe
-              width="626"
-              height="326"
-              src="https://www.youtube.com/embed/dpT6JNbpC3E?si=il1JRsiTFlJV97uZ"
-              title="YouTube video player"
-              // frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              // referrerpolicy="strict-origin-when-cross-origin"
-              // allowfullscreen
-            ></iframe>
-            <a href="#" className="btn_more">
-              <span>더 많은 영상 보기</span>
-            </a>
-          </div>
-        </section>
-
-        <section className="partner">
-          <div className="inner">
-            <h2 className="hide">파트너</h2>
-            <button className="btn_left" type="button">
-              <span className="hide">이전</span>
-            </button>
-            <ul className="swiper-wrapper">
-              <li className="swiper-slide">
-                <a href="#" target="_blank">
-                  <img
-                    src="../images/pc/main_bn_01.png"
-                    width="254"
-                    height="44"
-                    alt="해남군청 직영쇼핑몰 해남미소"
-                  />
-                </a>
-              </li>
-              <li className="swiper-slide">
-                <a href="#" target="_blank">
-                  <img
-                    src="../images/pc/main_bn_02.png"
-                    width="157"
-                    height="44"
-                    alt="구례군 로컬마켓 그래구례"
-                  />
-                </a>
-              </li>
-              <li className="swiper-slide">
-                <a href="#" target="_blank">
-                  <img
-                    src="../images/pc/main_bn_03.png"
-                    width="236"
-                    height="46"
-                    alt="전남어촌수산물직거래 바이씨"
-                  />
-                </a>
-              </li>
-            </ul>
-            <button className="btn_right" type="button">
-              <span className="hide">다음</span>
-            </button>
-          </div>
-        </section>
-
-        <div className="sc">
-          <div className="bn">
-            <a href="#">
-              <img
-                src="../images/pc/temp_ss_01.jpg"
-                width="70"
-                height="273"
-                alt=""
-              />
-            </a>
-            <a href="#" className="btn_more">
-              <span>더보기</span>
-            </a>
-          </div>
-          <ul className="util">
-            <li>
-              <a href="#" className="btn_chatbot">
-                <span className="hide">ChatBot</span>
+      <section className="partner">
+        <div className="inner">
+          <h2 className="hide">파트너</h2>
+          <button className="btn_left" type="button">
+            <span className="hide">이전</span>
+          </button>
+          <ul className="swiper-wrapper">
+            <li className="swiper-slide">
+              <a href="#" target="_blank">
+                <img
+                  src="../images/pc/main_bn_01.png"
+                  width="254"
+                  height="44"
+                  alt="해남군청 직영쇼핑몰 해남미소"
+                />
               </a>
             </li>
-            <li>
-              <a href="#" className="btn_top">
-                <span className="hide">TOP</span>
+            <li className="swiper-slide">
+              <a href="#" target="_blank">
+                <img
+                  src="../images/pc/main_bn_02.png"
+                  width="157"
+                  height="44"
+                  alt="구례군 로컬마켓 그래구례"
+                />
+              </a>
+            </li>
+            <li className="swiper-slide">
+              <a href="#" target="_blank">
+                <img
+                  src="../images/pc/main_bn_03.png"
+                  width="236"
+                  height="46"
+                  alt="전남어촌수산물직거래 바이씨"
+                />
               </a>
             </li>
           </ul>
+          <button className="btn_right" type="button">
+            <span className="hide">다음</span>
+          </button>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <div className="sc">
+        <div className="bn">
+          <a href="#">
+            <img
+              src="../images/pc/temp_ss_01.jpg"
+              width="70"
+              height="273"
+              alt=""
+            />
+          </a>
+          <a href="#" className="btn_more">
+            <span>더보기</span>
+          </a>
+        </div>
+        <ul className="util">
+          <li>
+            <a href="#" className="btn_chatbot">
+              <span className="hide">ChatBot</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" className="btn_top">
+              <span className="hide">TOP</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </main>
   );
 };
 

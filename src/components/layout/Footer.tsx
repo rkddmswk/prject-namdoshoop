@@ -1,5 +1,10 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+// 메인 푸터
 const Footer = () => {
-  // 메인 푸터
+  const navigate = useNavigate();
+
   return (
     <footer className="footer_container">
       <div className="site_info">
@@ -8,13 +13,19 @@ const Footer = () => {
             <a href="#">남도장터 소개</a>
           </li>
           <li>
-            <a href="#">개인정보처리방침</a>
+            <a href="#" onClick={() => navigate("/privacy")}>
+              개인정보처리방침
+            </a>
           </li>
           <li>
-            <a href="#">이용약관</a>
+            <a href="#" onClick={() => navigate("/use")}>
+              이용약관
+            </a>
           </li>
           <li>
-            <a href="#">이용안내</a>
+            <a href="#" onClick={() => navigate("/guide")}>
+              이용안내
+            </a>
           </li>
           <li>
             <a href="#">입점문의</a>

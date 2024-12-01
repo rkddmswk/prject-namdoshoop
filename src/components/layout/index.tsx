@@ -1,13 +1,28 @@
 import Footer from "./Footer";
 import Header from "./Header";
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+interface LayoutProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+const Layout = ({ children, className }: LayoutProps) => {
   return (
-    <>
+    <div className={className ? className : ""}>
       <Header />
-      {children}
+      <div
+        className="body_container"
+        style={{
+          width: "100%",
+          height: "auto",
+          overflowY: "hidden",
+          overflowX: "hidden",
+        }}
+      >
+        {children}
+      </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
