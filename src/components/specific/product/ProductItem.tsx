@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import img from "../../../assets/images/pc/temp_thumb_01.jpg";
 
 const ProductItem = ({
   tags,

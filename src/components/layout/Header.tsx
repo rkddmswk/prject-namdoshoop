@@ -1,4 +1,3 @@
-import Nav from "../common/menu/Nav";
 import LogoImage from "../../assets/images/dm/logo.png";
 import Menu from "../common/menu/Category";
 import RecentProduct from "../../pages/Product/RecentProduct";
@@ -7,9 +6,29 @@ import { useNavigate } from "react-router-dom";
 
 // 메인 헤더
 const Header = () => {
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false); // 전체 카테고리
   const [recentComponent, setRecentComponent] = useState(true); // 최근본상품
-  const navigate = useNavigate();
+  const [isFocused, setIsFocused] = useState(false); // input의 포커스를 관리하는 상태
+
+  // 오른쪽 사이드 메뉴
+  const sideMenu = [
+    {
+      text: "로그인",
+      href: "/login",
+    },
+    {
+      text: "회원가입",
+      href: "/membership",
+    },
+    {
+      text: "주문조회",
+    },
+    {
+      text: "고객센터",
+      href: "/customer",
+    },
+  ];
 
   // 최근본상품
   const handleRecentProduct = () => {
@@ -20,55 +39,33 @@ const Header = () => {
     <>
       <header className="header_container">
         <div className="inner">
-          <h1 className="logo">
+          <h1 className="logo" style={{ padding: "10px" }}>
             <a
-              href="#"
+              href="!#"
               onClick={(e) => {
-                e.preventDefault();
+                e.preventDefault(); // 기본 링크 동작 방지
                 navigate("/");
               }}
             >
-              <img src={LogoImage} width={160} height={45} />
+              <img src={LogoImage} width={160} height={45} alt="로고이미지" />
             </a>
           </h1>
 
           <ul className="util_menu">
-            <li>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate("/login");
-                }}
-              >
-                로그인
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate("/membership");
-                }}
-              >
-                회원가입
-              </a>
-            </li>
-            <li>
-              <a href="#">주문조회</a>
-            </li>
-            <li>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate("/customer");
-                }}
-              >
-                고객센터
-              </a>
-            </li>
+            {sideMenu.map((menu, index) => (
+              <li>
+                <a
+                  href="!#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate(`${menu.href}`);
+                  }}
+                  key={index}
+                >
+                  {menu.text}
+                </a>
+              </li>
+            ))}
           </ul>
 
           <div className="global_search">

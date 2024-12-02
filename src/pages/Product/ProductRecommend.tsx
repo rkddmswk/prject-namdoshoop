@@ -25,7 +25,7 @@ const ProductRecommend = () => {
                 <a href="#" className="btn_search">
                   <span className="hide">검색</span>
                 </a>
-                <a href="#" className="btn_cart">
+                <a className="btn_cart">
                   <span className="hide">장바구니</span>
                   <span className="count">99</span>
                 </a>

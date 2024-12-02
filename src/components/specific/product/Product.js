@@ -1,3 +1,5 @@
+import temp01 from "../../../assets/images/pc/temp_thumb_01.jpg";
+
 const products = [
   {
     tags: {
@@ -20,7 +22,7 @@ const products = [
       className: "eco",
       text: "친환경",
     },
-    // imageUrl: "../../../assets/images/pc/temp_thumb_01.jpg",
+    imageUrl: temp01,
     place: "남도농산1",
     free: "무료배송",
     bulk: "대량주문",
@@ -60,7 +62,7 @@ const products = [
       className: "brand",
       text: "10대브랜드",
     },
-    // imageUrl: "../../../assets/images/pc/temp_thumb_01.jpg",
+    imageUrl: temp01,
     place: "남도농산2",
     free: "무료배송",
     bulk: "대량주문",
