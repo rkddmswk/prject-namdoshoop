@@ -35,6 +35,36 @@ const Header = () => {
     setRecentComponent((prev) => !prev);
   };
 
+  // 오른쪽 즐겨찾기 메뉴
+  const favoriteMenu = [
+    {
+      label: "내정보",
+      url: "/myPage",
+      className: "btn_my",
+    },
+    {
+      label: "즐겨찾기",
+      url: "/myPage",
+      className: "btn_favorite",
+    },
+    {
+      label: "최근본상품",
+      className: "btn_view",
+      url: handleRecentProduct,
+    },
+    {
+      label: "챗봇",
+      className: "btn_chatbot",
+      url: "/chatbot",
+    },
+    {
+      label: "장바구니",
+      className: "btn_cart",
+      url: "/cart",
+      count: 99,
+    },
+  ];
+
   return (
     <>
       <header className="header_container">
@@ -73,32 +103,34 @@ const Header = () => {
               type="text"
               placeholder="텍스트입력"
               title="검색어를 입력해 주세요."
+              onMouseEnter={() => setIsFocused(true)}
+              onMouseLeave={() => setIsFocused(false)}
             />
             <button type="submit">
               <span className="hide">검색</span>
             </button>
 
             {/* 인기검색어 */}
-            <div className="auto_complete">
+            <div className={`auto_complete ${isFocused === true ? "on" : ""}`}>
               <div className="box">
                 <dl className="keyword">
                   <dt className="hide">연관 검색어</dt>
                   <dd>
-                    <a href="#">
+                    <a href="!#">
                       연관검색어연관검색어연관검색어연관검색어연관검색어 입니다.
                     </a>
                   </dd>
                   <dd>
-                    <a href="#">연관검색어 입니다.</a>
+                    <a href="!#">연관검색어 입니다.</a>
                   </dd>
                 </dl>
                 <dl className="fav_word">
                   <dt>인기 검색어</dt>
                   <dd>
-                    <a href="#">1. 신상품</a>
+                    <a href="!#">1. 신상품</a>
                   </dd>
                   <dd>
-                    <a href="#">2. 신상품</a>
+                    <a href="!#">2. 신상품</a>
                   </dd>
                 </dl>
               </div>
@@ -107,14 +139,33 @@ const Header = () => {
           </div>
 
           <ul className="user_menu">
-            <li className="btn_favorite">
-              <a href="#">
-                <span className="hide">즐겨찾기</span>
-              </a>
-            </li>
-            <li className="btn_my">
+            {favoriteMenu.map((item, index) => (
+              // <li className="btn_favorite">
+              //   <a href="!#">
+              //     <span className="hide">즐겨찾기</span>
+              //   </a>
+              // </li>
+
+              <li className={item.className} key={index}>
+                <a
+                  href="!#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    // navigate(`${item.url}`);
+                    if (item.className === "btn_view") {
+                      handleRecentProduct();
+                    } else {
+                      navigate(`${item.url}`);
+                    }
+                  }}
+                >
+                  {item.count && <span className="count">{item.count}</span>}
+                </a>
+              </li>
+            ))}
+            {/* <li className="btn_my">
               <a
-                href="#"
+                href="!#"
                 onClick={(e) => {
                   e.preventDefault();
                   navigate("/myPage");
@@ -124,21 +175,21 @@ const Header = () => {
               </a>
             </li>
             <li className="btn_view">
-              <a href="#" onClick={handleRecentProduct}>
+              <a href="!#" onClick={handleRecentProduct}>
                 <span className="hide">최근본상품</span>
               </a>
             </li>
             <li className="btn_chatbot">
-              <a href="#">
+              <a href="!#">
                 <span className="hide">챗봇</span>
               </a>
             </li>
             <li className="btn_cart">
-              <a href="#">
+              <a href="!#">
                 <span className="hide">장바구니</span>
                 <span className="count">99</span>
               </a>
-            </li>
+            </li> */}
           </ul>
 
           <nav
@@ -147,19 +198,29 @@ const Header = () => {
           >
             <ul className="swiper-wrapper">
               <li className="btn_ham swiper-slide">
-                <a href="#" onClick={() => setIsVisible((prev) => !prev)}>
+                <a
+                  href="!#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsVisible((prev) => !prev);
+                  }}
+                >
                   전체 카테고리
                 </a>
               </li>
               <li className="swiper-slide">
-                <a href="#">신상품</a>
+                <a href="!#" onClick={(e) => e.preventDefault()}>
+                  신상품
+                </a>
               </li>
               <li className="swiper-slide">
-                <a href="#">세일상품</a>
+                <a href="!#" onClick={(e) => e.preventDefault()}>
+                  세일상품
+                </a>
               </li>
               <li className="swiper-slide">
                 <a
-                  href="#"
+                  href="!#"
                   onClick={(e) => {
                     e.preventDefault();
                     navigate("/productRecommend");
@@ -170,7 +231,7 @@ const Header = () => {
               </li>
               <li className="swiper-slide">
                 <a
-                  href="#"
+                  href="!#"
                   onClick={(e) => {
                     e.preventDefault();
                     navigate("/exhibition");
@@ -181,7 +242,7 @@ const Header = () => {
               </li>
               <li className="swiper-slide">
                 <a
-                  href="#"
+                  href="!#"
                   onClick={(e) => {
                     e.preventDefault();
                     navigate("/musium");
@@ -192,7 +253,7 @@ const Header = () => {
               </li>
               <li className="swiper-slide">
                 <a
-                  href="#"
+                  href="!#"
                   onClick={(e) => {
                     e.preventDefault();
                     navigate("/city");
@@ -202,10 +263,16 @@ const Header = () => {
                 </a>
               </li>
               <li className="swiper-slide">
-                <a href="#">이벤트</a>
+                <a href="!#" onClick={(e) => e.preventDefault()}>
+                  이벤트
+                </a>
               </li>
               <li className="swiper-slide">
-                <a href="#" className="live">
+                <a
+                  href="!#"
+                  className="live"
+                  onClick={(e) => e.preventDefault()}
+                >
                   <span>
                     <span className="hide">라이브</span>
                   </span>
@@ -218,19 +285,19 @@ const Header = () => {
           <div className="mobile_menu">
             <ul>
               <li className="cate on">
-                <a href="#">카테고리</a>
+                <a href="!#">카테고리</a>
               </li>
               <li className="fav">
-                <a href="#">찜</a>
+                <a href="!#">찜</a>
               </li>
               <li className="home">
-                <a href="#">홈</a>
+                <a href="!#">홈</a>
               </li>
               <li className="view">
-                <a href="#">최근본상품</a>
+                <a href="!#">최근본상품</a>
               </li>
               <li className="my">
-                <a href="#">마이</a>
+                <a href="!#">마이</a>
               </li>
             </ul>
           </div>

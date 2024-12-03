@@ -4,57 +4,130 @@ import { useNavigate } from "react-router-dom";
 // 메인 푸터
 const Footer = () => {
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("Family site");
+
+  const siteInfo = [
+    {
+      label: "남도장터 소개",
+    },
+    {
+      label: "개인정보처리방침",
+      url: "/privacy",
+    },
+    {
+      label: "이용약관",
+      url: "/use",
+    },
+    {
+      label: "이용안내",
+      url: "/guide",
+    },
+  ];
+
+  const footerInfo = [
+    {
+      className: "sns_facebook",
+      label: "Facebook",
+    },
+    {
+      className: "sns_instargram",
+      label: "Instargram",
+    },
+    {
+      className: "sns_youtube",
+      label: "Youtube",
+    },
+  ];
+
+  const options = [
+    {
+      label: "전라남도청",
+    },
+    {
+      label: "재단법인 남도장터",
+    },
+    {
+      label: "가나다라마사아",
+    },
+  ];
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleOptionClick = (option: any) => {
+    setSelectedOption(option.label);
+    setIsOpen(false);
+  };
 
   return (
     <footer className="footer_container">
       <div className="site_info">
         <ul>
-          <li>
-            <a href="#">남도장터 소개</a>
-          </li>
-          <li>
-            <a href="#" onClick={() => navigate("/privacy")}>
-              개인정보처리방침
-            </a>
-          </li>
-          <li>
-            <a href="#" onClick={() => navigate("/use")}>
-              이용약관
-            </a>
-          </li>
-          <li>
-            <a href="#" onClick={() => navigate("/guide")}>
-              이용안내
-            </a>
-          </li>
-          <li>
-            <a href="#">입점문의</a>
-          </li>
+          {siteInfo.map((item, index) => (
+            <li key={index}>
+              <a
+                href="!#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate(`${item.url}`);
+                  window.scrollTo({ top: 0 });
+                }}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
       <div className="footer_info">
         <ul className="sns">
-          <li>
-            <a href="#" target="_blank" className="sns_facebook">
-              <span className="hide">Facebook</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" target="_blank" className="sns_instargram">
-              <span className="hide">Instargram</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" target="_blank" className="sns_youtube">
-              <span className="hide">Youtube</span>
-            </a>
-          </li>
+          {footerInfo.map((item, index) => (
+            <li key={index}>
+              <a
+                href="!#"
+                target="_blank"
+                className={item.className}
+                onClick={(e) => e.preventDefault}
+              >
+                <span className="hide">{item.label}</span>
+              </a>
+            </li>
+          ))}
         </ul>
-        <div className="fm_site on">
-          <a href="#" className="text">
-            Family site
+
+        <div className={`fm_site ${isOpen ? "on" : ""}`}>
+          <a
+            href="!#"
+            className="text"
+            onClick={(e) => {
+              e.preventDefault();
+              toggleDropdown();
+            }}
+          >
+            {selectedOption}
           </a>
-          <ul>
+          {isOpen && (
+            <ul>
+              {options.map((option, index) => (
+                <li key={index}>
+                  <a
+                    href="!#"
+                    target="_blank"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleOptionClick(option);
+                    }}
+                  >
+                    {option.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {/* <ul>
             <li>
               <a href="#" target="_blank">
                 전라남도청
@@ -70,8 +143,9 @@ const Footer = () => {
                 가나다라마사아
               </a>
             </li>
-          </ul>
+          </ul> */}
         </div>
+
         <p className="text_customer">
           <strong>
             고객센터 <span>1688-4888</span>
