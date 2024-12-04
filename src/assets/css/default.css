@@ -841,7 +841,8 @@ input[type="number"] {
   top: 0;
   background-color: rgba(0, 0, 0, 0.5);
   bottom: 0;
-  z-index: 9;
+  /* z-index: 9; */
+  z-index: 15;
 }
 
 .sc {

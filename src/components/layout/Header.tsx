@@ -308,7 +308,6 @@ const Header = () => {
           )}
         </div>
       </header>
-      <div className="dimmed_menu"></div>
     </>
   );
 };

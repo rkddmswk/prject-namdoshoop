@@ -126,24 +126,6 @@ const Footer = () => {
               ))}
             </ul>
           )}
-
-          {/* <ul>
-            <li>
-              <a href="#" target="_blank">
-                전라남도청
-              </a>
-            </li>
-            <li>
-              <a href="#" target="_blank">
-                재단법인 남도장터
-              </a>
-            </li>
-            <li>
-              <a href="#" target="_blank">
-                가나다라마사아
-              </a>
-            </li>
-          </ul> */}
         </div>
 
         <p className="text_customer">
