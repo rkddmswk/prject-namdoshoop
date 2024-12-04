@@ -3,7 +3,7 @@ import ProductList from "../../../pages/Product/ProductList";
 import { useNavigate } from "react-router-dom";
 
 // 전체카테고리
-const Menu = () => {
+const Menu = ({ isMenu, closeMenu }: any) => {
   // const menu = [
   //   "쌀/잡곡",
   //   "과일/견과",
@@ -15,15 +15,16 @@ const Menu = () => {
   //   "건강식품",
   //   "생활용품",
   // ];
-  const [isVisible, setIsVisible] = useState(true);
+  // const [isVisible, setIsVisible] = useState(true);
   const navigate = useNavigate();
 
-  const handleCloseHandler = () => {
-    setIsVisible((prev) => !prev);
-  };
+  // const handleCloseHandler = () => {
+  //   setIsVisible((prev) => !prev);
+  // };
 
   const handleProductList = (e: any) => {
     e.preventDefault();
+    closeMenu();
     navigate("/productList");
   };
   return (
@@ -84,7 +85,7 @@ const Menu = () => {
           </ul>
         </div>
       </section> */}
-      {isVisible && (
+      {isMenu && (
         <section className="total_category on">
           <div className="head">
             <div className="head_inner">
@@ -92,7 +93,7 @@ const Menu = () => {
               <button
                 type="button"
                 className="btn_close"
-                onClick={handleCloseHandler}
+                // onClick={handleCloseHandler}
               >
                 <span className="hide">전체 메뉴 닫기</span>
               </button>

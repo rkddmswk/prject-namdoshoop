@@ -302,12 +302,19 @@ const Header = () => {
             </ul>
           </div>
 
-          {isVisible && <Menu />}
+          {isVisible && (
+            <Menu isMenu={isVisible} closeMenu={() => setIsVisible(false)} />
+          )}
           {!recentComponent && (
             <RecentProduct closeRecent={handleRecentProduct} />
           )}
         </div>
       </header>
+
+      <div
+        className="dimmed_menu"
+        style={{ display: isVisible ? "block" : "none" }}
+      ></div>
     </>
   );
 };
