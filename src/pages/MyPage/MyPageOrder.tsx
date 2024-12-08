@@ -1,11 +1,10 @@
 import { useState } from "react";
-import myPageMenu from "../../components/common/json/mypageMenu";
+import MyPageNav from "../../components/layout/MyPageNav";
 import Order from "../../components/specific/user/Order";
 import Exchange from "../../components/specific/user/Exchange";
 import Returns from "../../components/specific/user/Returns";
-import MyPageNav from "../../components/layout/MyPageNav";
 
-const MyPage = () => {
+const MyPageOrder = () => {
   const [activeTab, setActiveTab] = useState("exchange"); // 활성화탭
   const [isVisible, setIsVisible] = useState(false); // 전체 카테고리
   const [isExchangePopup, setIsExchangePopup] = useState(false); // 교환팝업버튼
@@ -32,7 +31,7 @@ const MyPage = () => {
 
   return (
     <main className="sub_content">
-      <section className="mypage_main">
+      <section className="mypage">
         <div className="menu_wrap">
           <h2>마이페이지</h2>
           <MyPageNav />
@@ -41,23 +40,15 @@ const MyPage = () => {
         <div className="contents_wrap">
           <div className="sub_header">
             <div className="inner">
-              <span className="title">마이페이지</span>
+              <h3 className="title">주문내역</h3>
               <button type="button" className="btn_prev">
                 <span className="hide">이전페이지</span>
               </button>
               <div className="btn_wrap">
-                <a
-                  href="!#"
-                  className="btn_search"
-                  onClick={(e) => e.preventDefault()}
-                >
+                <a href="#" className="btn_search">
                   <span className="hide">검색</span>
                 </a>
-                <a
-                  href="!#"
-                  className="btn_cart"
-                  onClick={(e) => e.preventDefault()}
-                >
+                <a href="#" className="btn_cart">
                   <span className="hide">장바구니</span>
                   <span className="count">99</span>
                 </a>
@@ -65,109 +56,53 @@ const MyPage = () => {
             </div>
           </div>
 
-          <div className="my_reward">
-            <p className="name">홍길동님</p>
-            <p className="grade grade1">플래티넘</p>
-
-            <div className="member" style={{ padding: 0 }}>
-              <p className="alumni">
-                향우회
-                <span className="approved">
-                  <span className="m">(</span>승인완료
-                  <span className="m">)</span>
+          <div className="history_range">
+            <div className="box">
+              <h4>주문 조회</h4>
+              <span className="calendar">
+                <span className="input_calendar">
+                  <input type="text" name="" />
+                  <button type="button">
+                    <span className="hide">시작일</span>
+                  </button>
                 </span>
-              </p>
-              <p className="partner">
-                제휴회원
-                <span className="rejected">
-                  <span className="m">(</span>미승인<span className="m">)</span>
+                <span className="bar">~</span>
+                <span className="input_calendar">
+                  <input type="text" name="" />
+                  <button type="button">
+                    <span className="hide">종료일</span>
+                  </button>
                 </span>
-              </p>
+              </span>
             </div>
-
-            <div className="reward_state">
-              <dl>
-                <dt>쿠폰</dt>
-                <dd>
-                  <strong>3</strong>장
-                </dd>
-              </dl>
-              <dl>
-                <dt>적립금</dt>
-                <dd>
-                  <strong>1,000</strong>원
-                </dd>
-              </dl>
-              <dl>
-                <dt>바우처</dt>
-                <dd>
-                  <strong>100,000</strong>원
-                </dd>
-              </dl>
+            <div className="box">
+              <span className="range_selector">
+                <label>
+                  <input type="radio" name="range_selector" />
+                  <span>3개월</span>
+                </label>
+                <label>
+                  <input type="radio" name="range_selector" />
+                  <span>6개월</span>
+                </label>
+                <label>
+                  <input type="radio" name="range_selector" />
+                  <span>12개월</span>
+                </label>
+              </span>
+              <button type="button" className="button md black">
+                조회
+              </button>
             </div>
-            <p className="recent">최종 조회일 : 24/08/12</p>
           </div>
 
-          <section className="section">
-            <hgroup>
-              <h3 className="title">주문/배송 조회</h3>
-              <p>(최근 1개월)</p>
-            </hgroup>
-            <ol className="delivery_process">
-              <li>
-                <strong className="ing">1</strong>결제대기
-              </li>
-              <li>
-                <strong>0</strong>결제완료
-              </li>
-              <li>
-                <strong className="ing">99</strong>배송준비중
-              </li>
-              <li>
-                <strong>0</strong>배송중
-              </li>
-              <li>
-                <strong>0</strong>배송완료
-              </li>
-            </ol>
-            <a
-              href="!#"
-              className="btn_more"
-              onClick={(e) => e.preventDefault()}
-            >
-              더보기
-            </a>
-          </section>
-
-          {/* 모바일 */}
-          <div className="mobile_mymenu">
-            <ul>
-              {myPageMenu.map((item, index) => (
-                <li key={index}>
-                  <b>{item.topLabel}</b>
-                  <ul>
-                    {item.children.map((child, index) => (
-                      <li key={index}>
-                        <a href="!#">{child.text}</a>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <section className="section recent_order">
-            <hgroup>
-              <h3 className="title">최근 주문내역</h3>
-              <p>(최근 1개월)</p>
-            </hgroup>
+          <div className="order_list_wrap">
             <Order
               setActiveTab={setActiveTab}
               setIsExchangePopup={setIsExchangePopup}
               setIsCancelPopup={setIsCancelPopup}
             />
-          </section>
+          </div>
         </div>
 
         {isExchangePopup && (
@@ -1026,35 +961,7 @@ const MyPage = () => {
           </div>
         )}
       </section>
-
-      <div className="sc sub">
-        <div className="bn">
-          <a href="!#">
-            <img
-              src="../images/pc/temp_ss_01.jpg"
-              width="70"
-              height="273"
-              alt=""
-            />
-          </a>
-          <a href="!#" className="btn_more">
-            <span>더보기</span>
-          </a>
-        </div>
-        <ul className="util">
-          <li>
-            <a href="#" className="btn_chatbot">
-              <span className="hide">ChatBot</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" className="btn_top">
-              <span className="hide">TOP</span>
-            </a>
-          </li>
-        </ul>
-      </div>
     </main>
   );
 };
-export default MyPage;
+export default MyPageOrder;

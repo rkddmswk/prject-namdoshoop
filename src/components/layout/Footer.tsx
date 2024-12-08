@@ -8,9 +8,9 @@ const Footer = () => {
   const [selectedOption, setSelectedOption] = useState("Family site");
 
   const siteInfo = [
-    {
-      label: "남도장터 소개",
-    },
+    // {
+    //   label: "남도장터 소개",
+    // },
     {
       label: "개인정보처리방침",
       url: "/privacy",

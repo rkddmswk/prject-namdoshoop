@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 const Membership = () => {
+  const navigate = useNavigate();
+
   return (
     <main className="sub_content">
       <div className="member">
@@ -22,10 +26,24 @@ const Membership = () => {
 
         <div className="member_form login">
           <div className="member_btn">
-            <a className="btn btn_active" href="#">
+            <a
+              className="btn btn_active"
+              href="!#"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/membershipInfo");
+              }}
+            >
               개인회원
             </a>
-            <a className="btn" href="#">
+            <a
+              className="btn"
+              href="!#"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/business");
+              }}
+            >
               사업자회원
             </a>
           </div>

@@ -1,32 +1,28 @@
+import { useNavigate } from "react-router-dom";
+import FaqCustomer from "../../components/specific/customer/FaqCustomer";
 import { useState } from "react";
 
 const Customer = () => {
-  const [activeFaq, setActiveFaq] = useState(null);
+  const navigate = useNavigate();
 
-  // 자주 묻는 질문(Faq)
-  const faqs = [
+  const sideMenu = [
     {
-      question: "대량주문 방법을 알려주세요.",
-      answer:
-        "반품&교환은 남도장터 고객센터(1668-4868)를 통해 접수바랍니다. ※ 남도장터 카카오톡 채널로 접수 가능 ※ 고객님께서 반품 상품을 임의로 보낼 시 발생하는 불이익은 책임지지 않습니다.",
+      label: "공지사항",
+      url: "/customer/notice",
     },
     {
-      question: "견적서는 어떻게 출력하나요?",
-      answer: "견적서는 고객센터 메뉴에서 출력할 수 있습니다.",
+      label: "자주 묻는 질문",
+      url: "/customer/qusition",
     },
     {
-      question: "반품 & 교환은 어디로 보내야 하나요?",
-      answer: "반품&교환은 남도장터 고객센터(1668-4868)를 통해 접수바랍니다.",
+      label: "1:1 문의",
+      url: "/customer/oneQusition",
     },
     {
-      question: "배송은 어디서 하나요?",
-      answer: "배송은 상품 상세 페이지에서 배송 정보를 확인하세요.",
+      label: "입점 신청",
+      url: "/customer/apply",
     },
   ];
-
-  const toggleFaq = (index: any) => {
-    setActiveFaq(activeFaq === index ? null : index);
-  };
 
   return (
     <div className="none_header">
@@ -35,18 +31,19 @@ const Customer = () => {
           <div className="menu_wrap">
             <h2>고객센터</h2>
             <ul>
-              <li>
-                <a href="#">공지사항</a>
-              </li>
-              <li>
-                <a href="#">자주 묻는 질문</a>
-              </li>
-              <li>
-                <a href="#">1:1 문의</a>
-              </li>
-              <li>
-                <a href="#">입점 신청</a>
-              </li>
+              {sideMenu.map((menu) => (
+                <li>
+                  <a
+                    href="!#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate(`${menu.url}`);
+                    }}
+                  >
+                    {menu.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="contents_wrap">
@@ -92,6 +89,15 @@ const Customer = () => {
                   전체보기
                 </a>
               </header>
+              <FaqCustomer />
+            </div>
+            {/* <div className="cs_acord">
+              <header>
+                <h3>자주 묻는 질문 TOP 5</h3>
+                <a href="#" className="more">
+                  전체보기
+                </a>
+              </header>
               <div className="cs_acordbox">
                 {faqs.map((faq, index) => (
                   <div className="inner" key={index}>
@@ -110,7 +116,7 @@ const Customer = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
       </main>

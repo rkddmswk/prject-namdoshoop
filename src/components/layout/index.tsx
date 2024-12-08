@@ -1,3 +1,4 @@
+import NavCustomer from "./NavCustomer";
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -7,6 +8,7 @@ interface LayoutProps {
 }
 
 const Layout = ({ children, className }: LayoutProps) => {
+  const hasCustomerNav = className?.includes("nav_customer");
   return (
     <div className={className ? className : ""}>
       <Header />
@@ -19,7 +21,13 @@ const Layout = ({ children, className }: LayoutProps) => {
           overflowX: "hidden",
         }}
       >
-        {children}
+        {hasCustomerNav ? (
+          <main className="sub_content">
+            <NavCustomer children={children} />
+          </main>
+        ) : (
+          children
+        )}
       </div>
       <Footer />
     </div>

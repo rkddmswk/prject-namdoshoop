@@ -263,7 +263,13 @@ const Header = () => {
                 </a>
               </li>
               <li className="swiper-slide">
-                <a href="!#" onClick={(e) => e.preventDefault()}>
+                <a
+                  href="!#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate("/event");
+                  }}
+                >
                   이벤트
                 </a>
               </li>
